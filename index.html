@@ -8,11 +8,44 @@
     </head>
     <body>
         <script>
+            carQueue = []
+            carParkingLot =[]
+            freeway = []
 
+            var car = {
+                 make: pickMake,
+                 year: pickYear,
+                 color: pickColor,
+                 licensePlate: pickLP
+            };
 
+            var pickYear = Math.floor(Math.random() * 2019) + 2000;
+            
+            arrMake = [
+                'Audi', 'BMW', 'Cadillac', 'Chevrolet', 'Dodge', 'Jeep', 'Kia', 'Lincoln', 'Range Rover', 'Tesla'
+                ]
+            var pickMake = arrMake[Math.floor(Math.random() * arrMake.length)];
+            
+            arrColor = [
+                'blue', 'yellow', 'red', 'green', 'black', 'silver', 'ornage', 'white'
+            ]
+            var pickColor = arrColor[Math.floor(Math.random() * arrColor.length)];
 
+            var pickLP = factoryLP();
 
+            function factoryLP (){
+                var emptyString = "";
+                var alphabet = "ABCDEFGHIJKLMNOPQRSTUVWXYZ123456789";
 
+                while (emptyString.length < 7) {
+                emptyString += alphabet[Math.floor(Math.random() * alphabet.length)];
+                } 
+            }
+
+            console.log(car.make);
+            console.log(car.year);
+            console.log(car.color);
+            console.log(car.licensePlate);
 
 
         </script>
