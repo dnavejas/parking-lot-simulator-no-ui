@@ -1,4 +1,14 @@
+'use strict'
+
 let carQueue = [];
-let carParkingLot =[];
 let highway = [];
 
+carFactory()
+
+function checkSpot() {
+    if(array.length < 1 || array == undefined){
+
+    }
+}
+checkSpot ()
+console.log(checkSpot)

@@ -13,6 +13,7 @@ function randomTime(t){
 let arrMake = [
     'Audi', 'BMW', 'Cadillac', 'Chevrolet', 'Dodge', 'Jeep', 'Kia', 'Lincoln', 'Range Rover', 'Tesla'
     ]
+    
 function randomMake(arrMake){ 
     let min = 0;
     let max = (arrMake.length - 1);
@@ -23,6 +24,7 @@ function randomMake(arrMake){
 let arrColor = [
     'blue', 'yellow', 'red', 'green', 'black', 'silver', 'orange', 'white'
 ]
+
 function randomColor(arrColor){
     let min = 0;
     let max = (arrColor.length - 1);
@@ -55,5 +57,3 @@ function carFactory (i){
     }
     return carQueue;
 }
-carFactory()
-console.log(carQueue)
