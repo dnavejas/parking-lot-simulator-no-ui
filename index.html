@@ -8,46 +8,67 @@
     </head>
     <body>
         <script>
-            carQueue = []
-            carParkingLot =[]
-            freeway = []
+            'use strict';
+            let carQueue = [];
+            let carParkingLot =[];
+            let freeway = [];
 
-            var car = {
-                 make: pickMake,
-                 year: pickYear,
-                 color: pickColor,
-                 licensePlate: pickLP
-            };
-
-            var pickYear = Math.floor(Math.random() * 2019) + 2000;
+            function randomYear(){
+                 Math.floor(Math.random() * 19) + 2000;
+            }
             
-            arrMake = [
+            let arrMake = [
                 'Audi', 'BMW', 'Cadillac', 'Chevrolet', 'Dodge', 'Jeep', 'Kia', 'Lincoln', 'Range Rover', 'Tesla'
                 ]
-            var pickMake = arrMake[Math.floor(Math.random() * arrMake.length)];
+            console.log(arrMake)
+            function randomMake(arrMake){ 
+                let min = 0;
+                console.dir(randomMake)
+                let max = (arrMake.length - 1);
+                let randMake = Math.floor(Math.random() * (max - min));
+                return arrMake[randMake];
+            }
             
-            arrColor = [
-                'blue', 'yellow', 'red', 'green', 'black', 'silver', 'ornage', 'white'
+            let arrColor = [
+                'blue', 'yellow', 'red', 'green', 'black', 'silver', 'orange', 'white'
             ]
-            var pickColor = arrColor[Math.floor(Math.random() * arrColor.length)];
-
-            var pickLP = factoryLP();
-
-            function factoryLP (){
-                var emptyString = "";
-                var alphabet = "ABCDEFGHIJKLMNOPQRSTUVWXYZ123456789";
-
-                while (emptyString.length < 7) {
-                emptyString += alphabet[Math.floor(Math.random() * alphabet.length)];
-                } 
+            function randomColor(arrColor){
+                let min = 0;
+                let max = (arrColor.length - 1);
+                let randColor = Math.floor(Math.random() * (max - min));
+                return arrColor[randColor];
             }
 
-            console.log(car.make);
-            console.log(car.year);
-            console.log(car.color);
-            console.log(car.licensePlate);
+            function randomLP(){
+                licenseFactory();
+            }
 
+            function licenseFactory (l){
+                var l = "";
+                var alphabet = "ABCDEFGHIJKLMNOPQRSTUVWXYZ123456789";
 
+                while (l.length < 7) {
+                    l += alphabet[Math.floor(Math.random() * alphabet.length)];
+                } 
+                return l
+            }
+            
+            function Car(color, year, make, licensePlate){
+                this.color = randomColor(arrColor);
+                this.year = randomYear();
+                this.make = randomMake(arrMake); 
+                this.licensePlate = randomLP();
+            };
+
+            function carFactory (i){
+                for (i = 0; i <100; i++){
+                    let car = new Car();
+                    carQueue.push(car);
+                }
+                return carQueue;
+            }
+            carFactory()
+            console.log(carQueue)
         </script>
 
         
