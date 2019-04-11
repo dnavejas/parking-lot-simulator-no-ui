@@ -48,12 +48,26 @@ function Car(color, year, make, licensePlate, time){
     this.make = randomMake(arrMake); 
     this.licensePlate = randomLP();
     this.time = randomTime ();
+
+    this.park = function (car){
+        
+        console.log("car parked");
+        setTimeout(car.leave, car.time, car.licensePlate);
+    }
+
+    this.leave = function (){
+        let carPosition = parkingLot.map(function(x) {return (x.licensePlate); }).indexOf(licensePlate);
+            let car = parkingLot.splice(carPosition, 1)[0];
+            highway.push(car);
+        console.log("car left");
+
+    }
 };
 
 function carFactory (i){
     for (i = 0; i <100; i++){
         let car = new Car();
-        carQueue.push(car);
+        streetQueue.push(car);
     }
-    return carQueue;
+    return streetQueue;
 }
