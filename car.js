@@ -1,4 +1,5 @@
 'use strict';
+let streetQueue = [];
 
 function randomYear(y){
     var y = Math.floor(Math.random() * 19) + 2000;
@@ -49,20 +50,12 @@ function Car(color, year, make, licensePlate, time){
     this.licensePlate = randomLP();
     this.time = randomTime ();
 
-    this.park = function (car){
-        
-        console.log("car parked");
-        setTimeout(car.leave, car.time, car.licensePlate);
-    }
-
     this.leave = function (){
-        let carPosition = parkingLot.map(function(x) {return (x.licensePlate); }).indexOf(licensePlate);
-            let car = parkingLot.splice(carPosition, 1)[0];
-            highway.push(car);
+        
         console.log("car left");
 
     }
-};
+}
 
 function carFactory (i){
     for (i = 0; i <100; i++){
@@ -71,3 +64,6 @@ function carFactory (i){
     }
     return streetQueue;
 }
+
+carFactory();
+console.log(streetQueue)
